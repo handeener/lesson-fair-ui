@@ -9,6 +9,7 @@ import {
   Area,
 } from "recharts";
 import StatCard from "../components/statcard/StatCard";
+import { motion } from "framer-motion";
 
 
 const data = [
@@ -21,7 +22,7 @@ const data = [
 
 export default function Dashboard() {
   return (
-    <div className="space-y-6">
+    <motion.div  initial={{ opacity: 0, y: 20 }}  animate={{ opacity: 1, y: 0 }}  transition={{ duration: 0.5 }}  className="space-y-6">
       <h2 className="text-2xl font-semibold">Dashboard</h2>
 
       {/* KPI */}
@@ -33,7 +34,7 @@ export default function Dashboard() {
       </div>
 
       {/* CHARTS */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-4 rounded-2xl bg-white/5 backdrop-blur-xl">
         
         {/* BIG CHART */}
         <div className="col-span-2 bg-card p-5 rounded-2xl border border-white/10">
@@ -84,6 +85,6 @@ export default function Dashboard() {
         </div>
 
       </div>
-    </div>
+    </motion.div>
   );
 }
